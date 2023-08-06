@@ -31,7 +31,7 @@ $env:GOOS="linux"; $env:GOARCH="arm64"; go build
 
 == Run
 
-[source,sh]
+[source,shell]
 ----
 ./dump1090-ui -port 8081
 ----
