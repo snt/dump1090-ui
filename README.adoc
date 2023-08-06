@@ -1,0 +1,37 @@
+= `dump1090-ui`
+
+Doing almost same thing as https://github.com/adsb-related-code/dump1090-mutability/blob/master/debian/lighttpd/89-dump1090.conf[configurations] for `lighttpd` that come with `dump1090-mutability`.
+
+* Redirect
+[%header,cols="m,m,a"]
++
+|====
+|From |To |Note
+|/dump1090 |/dump1090/ |To get the browser redirected to `/dump1090/gmail.html`.
+|/dump1090/ |/dump1090/gmap.html |
+|====
+
+* Serve static files
++
+[%header,cols="m,m"]
+|====
+|Path prefix |File system
+|/dump1090/ |/usr/share/dump1090-mutability/html
+|/dump1090/data |/run/dump1090-mutability
+|====
+
+== Build
+
+For cross compiling on Windows.
+
+[source,pwsh]
+----
+$env:GOOS="linux"; $env:GOARCH="arm64"; go build
+----
+
+== Run
+
+[source,sh]
+----
+./dump1090-ui -port 8081
+----
